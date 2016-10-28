@@ -27,6 +27,7 @@ import globalMessages, * as fromGlobalMessages from '../../components/store/glob
 
 import issuesActivity, * as fromIssuesActivity from '../../apps/account/home/store/reducer';
 import projectsApp, * as fromProjectsApp from '../../apps/projects/store/reducer';
+import qualityGatesApp from '../../apps/quality-gates/store/rootReducer';
 
 export default combineReducers({
   components,
@@ -38,7 +39,8 @@ export default combineReducers({
 
   // apps
   issuesActivity,
-  projectsApp
+  projectsApp,
+  qualityGatesApp
 });
 
 export const getComponent = (state, key) => (
@@ -83,4 +85,8 @@ export const getProjectsAppState = state => (
 
 export const getProjectsAppFilterStatus = (state, key) => (
     fromProjectsApp.getFilterStatus(state.projectsApp, key)
+);
+
+export const getQualityGatesAppState = state => (
+    state.qualityGatesApp
 );
